@@ -1,10 +1,15 @@
 import React from "react";
-import MemoApp from "./TodoList";
+import Todo from "./Todo";
+import Count from "./Count";
+import Memo from "./Memo";
 
-function App(){
+const App = ()=>{
     return(
-        <div>
-       <MemoApp />
+        <div id='main'>
+            <h1>React.useMemo</h1>
+            <Todo />
+            <Count />
+            <Memo />
         </div>
     )
 }
