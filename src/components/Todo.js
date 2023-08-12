@@ -1,22 +1,22 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
-const Todo = ()=>{
-    let [todos, setTodos] = useState(['New Todo']);
+const Todo = () => {
+    const [todo, setTodo] = useState(['New Todo']);
 
-    return(
-        <div>
+    return (
+        <>
             <h2>My todos</h2>
             {
-                todos &&
-                todos.map((todo, ind)=>(
-                    <p id={`todo-${ind}`}>{todo}</p>
-                ))
+                todo && todo.map((todo, index) => <p id={`todo-${index}`} key={`todo-${index}`}>{todo}</p>)
             }
-            <button id='add-todo-btn' onClick={()=>{setTodos([...todos, 'New todo'])}}>Add Todo</button>
-            <br/>
-            <br/>
+            <button id="add-todo-btn" onClick={() => setTodo([...todo, 'New Todo'])}>
+                Add Todo
+            </button>
+
+            <br />
+            <br />
             <hr />
-        </div>
+        </>
     )
 }
 

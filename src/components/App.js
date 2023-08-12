@@ -3,9 +3,9 @@ import Todo from "./Todo";
 import Count from "./Count";
 import Memo from "./Memo";
 
-const App = ()=>{
+const App = () => {
     return(
-        <div id='main'>
+        <div id="main">
             <h1>React.useMemo</h1>
             <Todo />
             <Count />
