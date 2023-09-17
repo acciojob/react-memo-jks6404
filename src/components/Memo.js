@@ -1,38 +1,28 @@
-import React, { useState } from "react";
+import React,{useState} from 'react'
 
-const Memo = () => {
-   let [memos, setMemos] = useState([]);
-   let [skill, setSkill] = useState("");
-
-   return (
-      <div>
-         <h2>React.memo</h2>
-         <input
-            id="skill-input"
-            type="text"
-            onChange={(e) => {
-               setSkill(e.target.value);
-            }}
-         ></input>
-         <button
-            id="skill-btn"
-            onClick={() => {
-               setMemos([...memos, skill]);
-            }}
-         >
-            Add Skill
-         </button>
-         <br />
-         {memos && (
+let Memo= (props)=>{
+    let [string,Setstring]=useState('')
+    function adddata(){
+        console.log(string)
+        if(string.length>5){
+          props.set([...props.arr,string])
+          Setstring('')  
+        } 
+    }
+    return(
+        <div>
+            <div className='cont'>
+            <h1>React.memo</h1>    
+            <input type='text' onChange={(event)=>Setstring(event.target.value)} value={string} id='skill-input'></input>
+            <button onClick={adddata} id='skill-btn'>Add Skill</button>
+            </div>
             <ul>
-               {memos.map((memo) => (
-                  <li id={`item-${memo}`} key={`item-${memo}`}>{memo}</li>
-               ))}
+            {  props.arr.map(element=>{
+                    return <li id={'item-'+element}>{element}</li>
+            })
+            }
             </ul>
-         )}
-         <br />
-      </div>
-   );
-};
-
-export default Memo;
+        </div>
+    )
+}
+export default Memo

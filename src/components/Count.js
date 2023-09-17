@@ -1,23 +1,17 @@
-import React, { useState } from "react";
+import React from 'react'
 
-const Count = () => {
-    const [count, setCount] = useState(0);
-
-    return (
-        <>
-            <p id="incr-cnt">Count: {count}</p>
-            <button id="incr-btn" onClick={() => setCount(count + 1)}>
-                +
-            </button>
-            <br />
-            <br />
-            <h2>Expensive Calculation</h2>
-            <p id="calc">{1000000000 + count}</p>
-            <hr />
-            <hr />
-            <br />
-        </>
+let Count= (props)=>{
+    function adddata(){
+        props.set(props.number+1)
+    }
+    return(
+        <div id='incr-cnt'>
+            <div className='cont'>
+             <h1>My Todos</h1>   
+            <div id='calc'>{props.number}</div>
+            <button onClick={adddata} id='incr-btn'>+</button>
+            </div>
+        </div>
     )
 }
-
-export default Count;
+export default Count
